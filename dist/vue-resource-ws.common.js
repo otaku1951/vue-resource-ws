@@ -1,8 +1,10 @@
 /*!
- * vue-resource v1.5.3
+ * vue-resource-ws v1.5.4
  * https://github.com/pagekit/vue-resource
  * Released under the MIT License.
  */
+
+'use strict';
 
 /**
  * Promises/A+ polyfill v1.1.4 (https://github.com/bramstein/promis)
@@ -1459,9 +1461,8 @@ function plugin(Vue) {
   });
 }
 
-if (typeof window !== 'undefined' && window.Vue && !window.Vue.resource) {
+if (typeof window !== 'undefined' && window.Vue && window.Vue.use && !window.Vue.resource) {
   window.Vue.use(plugin);
 }
 
-export default plugin;
-export { Url, Http, Resource };
+module.exports = plugin;
